@@ -10,14 +10,16 @@ function App() {
   const[value, setValue] = useState(0);
   return (
     <div className="App">
-      <Navbar />
+      <Navbar logoText="Dheeraj"/>
       <div className="value">{value}</div>
       <button onClick={()=>{
         setValue(value+1);
       }}>click me</button>
      
-      <Footer />
+
+     <Footer />
     </div>
+    
   );
 }
 
