@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import Navbar from './Components/Navbar';
+import Footer from './Components/Footer'; 
 
 // App.js hai jo voh hmari main app hai aur jo bhi code hum isme likhenge voh main code hai jo app me dikhega
 
@@ -15,6 +16,7 @@ function App() {
         setValue(value+1);
       }}>click me</button>
      
+      <Footer />
     </div>
   );
 }
