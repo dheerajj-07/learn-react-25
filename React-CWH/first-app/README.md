@@ -4,4 +4,6 @@
 
 2. App function is entry point of a react app, App function is in App.jsx file
 
+3. ClassName is used instead of Class in jsx, because Class keyword is already present in js, so to avoid conflit we use ClassName instead of Class.
 
+4. 
