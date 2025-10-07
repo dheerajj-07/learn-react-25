@@ -27,5 +27,12 @@
             setColor(color+1)
         }, [count])
 
+4. useRef Hook ----
+     useRef use krne se component rerender toh hota hai but useRef ki use se hmari useRef vali values trigger / change nhi hoti.
+
+     ex- useRef(0).... jab bhi component rerender hoga toh iski value same rhegi, agr hum iski value update krenge toh rerender hone k baad dubara 0 nhi show hoga, updated value show hogi
+
+     in short--- agr hmne state ko change kr dia toh component rerender hota hai, lekin agr hmne ref ko change kr dia toh component rerender nhi hota
+
 
     
