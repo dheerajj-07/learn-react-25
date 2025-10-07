@@ -12,20 +12,32 @@ function App() {
   //   alert("count has been updated")
   // }, [count]) // jab bhi count update ho tab chlo
 
-  const a = useRef(0)
+  // // start
+  // const a = useRef(0)
   
-  useEffect(() => {
-    a.current = a.current + 1
-    console.log(a.current)
-  })
+  // useEffect(() => {
+  //   a.current = a.current + 1
+  //   console.log(a.current)
+  // })
+  // //end
 
+  //start
+  const btnref = useRef()
+  useEffect(() => {
+    console.log("First rendering")
+    btnref.current.style.backgroundColor = "red"
+  },[])
+
+  
 
   return (
     <>
      <div>The count is {count}</div>
-     <button onClick={()=>{
+     <button ref={btnref} onClick={()=>{
       setCount(count + 1)
      }}>Update count</button>
+     <button onClick={()=>{
+      btnref.current.style.display = 'none'}}>Change me</button>
     </>
   )
 }
