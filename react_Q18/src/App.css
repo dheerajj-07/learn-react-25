@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.card{
+    border: 2px solid black;
+    max-width: 25vw;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.container{
+    display: flex;
+    gap:34px;
+    flex-wrap: wrap;
+    justify-content: center;
+}

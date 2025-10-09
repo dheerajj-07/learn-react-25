@@ -1,0 +1,14 @@
+
+nav{
+    display: flex;
+    background: blue;
+    color: white;
+    padding: 20px;
+}
+li{
+    list-style: none;
+}
+ul{
+    gap: 34px;
+    display: flex;
+}

@@ -21,22 +21,29 @@ function App() {
     }
   ])
 
-  const Todo = ({todo})=>{
-    return (<>
-      <div className="todo">{todo.title}</div>
-      <div className="todo">{todo.desc}</div>
-    </>)
-  }
+  // const Todo = ({todo})=>{
+  //   return (<>
+  //     <div className="todo">{todo.title}</div>
+  //     <div className="todo">{todo.desc}</div>
+  //   </>)
+  // }
 
   return (
     <>
       
-      {showbtn? <button>showbtn is True</button> : <button>showbtn is False</button> }
+      {showbtn? <button>showbtn is True</button> : <button>showbtn is False</button> } 
+          {/* way one of rendering if we want to show something based on condition */}
 
 
       {/* {showbtn && <button>It will be shown only when count button is clicked.</button>} */}
+          {/* second way of rendering if we dont want to render something that is based on condition but one of them is true. */}
+
       {todos.map(todo=>{
-        return <Todo todo={todo}/>
+        // return <Todo todo={todo}/>
+        return <div key={todo.title} className="m-4 border-1 border-purple-400">
+          <div className="todo">{todo.title}</div>
+          <div className="todo">{todo.desc}</div>
+        </div>
       })}
       <div className="card">
         <button onClick={() => setShowbtn(!showbtn)}>
