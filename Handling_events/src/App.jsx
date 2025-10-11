@@ -5,29 +5,35 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [name, setname] = useState("Dheeraj")
+  const [Form, setForm] = useState({email:"", phone:""})
+
+  const handleClick = ()=>{
+    alert("I am clicked")
+  }
+  const handleMouseHover = ()=>{
+    alert("Mouse hovered over me")
+  }
+  const handleNameChange = (e)=>{
+    setname(e.target.value)
+  }
+  const handleChange = (e)=>{
+    setForm({...Form,[e.target.name]:e.target.value})
+    console.log(Form)
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="button">
+        <button onClick={handleClick}>Click me</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="red" onMouseOver={handleMouseHover}>
+        <p>i am a red div</p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <input type="text" value={name} onChange={handleNameChange}/>
+
+      <input type="text" name='email' value={Form.email} onChange={handleChange}/>
+      <input type="text" name='phone' value={Form.phone} onChange={handleChange}/>
     </>
   )
 }

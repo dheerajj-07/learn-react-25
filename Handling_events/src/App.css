@@ -4,6 +4,14 @@
   padding: 2rem;
   text-align: center;
 }
+.red{
+  background-color: red;
+  height: 20vh;
+  width: 40vw;
+  margin: 0 auto;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
 
 .logo {
   height: 6em;
