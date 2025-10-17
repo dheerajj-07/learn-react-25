@@ -9,6 +9,7 @@ function App() {
   const [count, setCount] = useState(0)
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
+  const [showFinished, setshowFinished] = useState(true)
 
   useEffect(() => { // yeh useEffect ek baar chelga aur saare todos ko load krega
     let todoString = localStorage.getItem("todos")
@@ -22,7 +23,9 @@ function App() {
   const saveToLS = (params) => {
     localStorage.setItem("todos", JSON.stringify(todos)) //function to save todos to local storage
   }
-  
+  const toggleFinished = (e)=>{
+    setshowFinished(!showFinished)
+  }
 
   const handleEdit = (e,id) => {
     let t = todos.filter(i=>i.id === id)
@@ -69,21 +72,22 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto my-6 rounded-xl p-5 bg-violet-200 min-h-[80vh]">
+      <div className="container mx-auto my-6 rounded-xl p-5 bg-violet-200 min-h-[80vh] box-border">
         <div className="addTodo">
           <h2 className='text-lg font-semibold'>Add a Todo</h2>
-          <input onChange={handleChange} value={todo} type="text" className='bg-slate-100 rounded-s-2xl p-2 w-1/2'/>
-          <button onClick={handleAdd} className='bg-violet-500 rounded-r-2xl p-2 px-6 cursor-pointer'>Save</button>
+          <input onChange={handleChange} value={todo} type="text" className='bg-slate-100 rounded-s-2xl p-2 min-w-[65vw] justify-between ml-5 '/>
+          <button onClick={handleAdd} disabled={todo.length<=3} className='bg-violet-500 rounded-r-2xl p-2 px-6 cursor-pointer disabled:bg-slate-600 disabled:cursor-not-allowed min-w-[7vw]'>Save</button>
         </div>
+        <input type="checkbox" onChange={toggleFinished} checked={showFinished} className='ml-6 m-3 cursor-pointer'/>Show Finished
         <h2 className='text-xl font-semibold'>Your Todos</h2>
         
         <div className="todos">
           {todos.length ===0 && <div className='todo flex justify-between m-5 bg-slate-100 p-3 rounded-2xl text-xl'>No Todo to display</div>}
           {todos.map(item=>{
         
-        return <div key={item.id} className="todo flex justify-between m-5 bg-slate-100 p-3 rounded-2xl">
+        return (showFinished || !item.isCompleted)&&<div key={item.id} className="todo flex justify-between m-5 bg-slate-100 p-3 rounded-2xl overflow-auto ">
           <div className='flex gap-5 my-auto'>
-            <input name={item.id} onChange={handleCheckbox} type="checkbox" value={item.isCompleted} id="" />
+            <input name={item.id} onChange={handleCheckbox} type="checkbox" checked={item.isCompleted} id="" className='cursor-pointer' />
             <div className={item.isCompleted?"line-through":""}>
               {item.todo}
             </div>
