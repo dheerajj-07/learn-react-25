@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './Components/Navbar'
+import { LiaEditSolid } from "react-icons/lia";
+import { MdDelete } from "react-icons/md";
 import {v4 as uuidv4} from 'uuid' // uuid is a component which is used to generate a unique id everytime it is called.
 
 function App() {
@@ -72,11 +74,11 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto my-6 rounded-xl p-5 bg-violet-200 min-h-[80vh] box-border">
+      <div className="container mx-auto my-6 rounded-xl p-5 bg-violet-200 min-h-[80vh] box-border flex-col">
         <div className="addTodo">
           <h2 className='text-lg font-semibold'>Add a Todo</h2>
-          <input onChange={handleChange} value={todo} type="text" className='bg-slate-100 rounded-s-2xl p-2 min-w-[65vw] justify-between ml-5 '/>
-          <button onClick={handleAdd} disabled={todo.length<=3} className='bg-violet-500 rounded-r-2xl p-2 px-6 cursor-pointer disabled:bg-slate-600 disabled:cursor-not-allowed min-w-[7vw]'>Save</button>
+          <input onChange={handleChange} value={todo} type="text" className='md:mx-5 bg-slate-100 rounded-2xl p-2 min-w-[70vw] justify-between ml-5'/>
+          <button onClick={handleAdd} disabled={todo.length<=3} className='bg-violet-500 rounded-2xl m-3 ml-5 p-2 px-6 cursor-pointer disabled:bg-slate-600 disabled:cursor-not-allowed min-w-[70vw] text-white'>Save</button>
         </div>
         <input type="checkbox" onChange={toggleFinished} checked={showFinished} className='ml-6 m-3 cursor-pointer'/>Show Finished
         <h2 className='text-xl font-semibold'>Your Todos</h2>
@@ -94,8 +96,8 @@ function App() {
 
           </div>
           <div className="buttons flex gap-5 mx-5 h-full">
-            <button onClick={(e)=>{handleEdit(e, item.id)}} className='bg-violet-500 rounded-xl p-2 px-6 cursor-pointer'>Edit</button>
-            <button onClick={(e)=>{handleDelete(e, item.id)}} className='bg-violet-500 rounded-xl p-2 px-6 cursor-pointer'>Delete</button>
+            <button onClick={(e)=>{handleEdit(e, item.id)}} className='bg-violet-500 rounded-xl p-2 px-6 cursor-pointer text-white'><LiaEditSolid /></button>
+            <button onClick={(e)=>{handleDelete(e, item.id)}} className='bg-violet-500 rounded-xl p-2 px-6 cursor-pointer text-white'><MdDelete /></button>
           </div>
         </div>
         })}
