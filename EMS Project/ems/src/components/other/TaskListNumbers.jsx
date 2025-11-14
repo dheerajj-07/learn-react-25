@@ -1,6 +1,5 @@
-import React from 'react'
 
-const TaskListNumbers = () => {
+const TaskListNumbers = ({data}) => {
   return (
     <div className='flex box-border justify-between gap-5 mt-10'>
         <div className= 'rounded-xl w-[30%] px-9 py-6 bg-red-400'>
